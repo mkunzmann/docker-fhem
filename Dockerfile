@@ -14,8 +14,8 @@ RUN mkdir -p /var/log/supervisor
 
 COPY ./etc/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
-VOLUME ["/mnt/state"]
-EXPOSE 8083 22
+VOLUME ["/opt/fhem"]
+EXPOSE 8083
 
 CMD ["/usr/bin/supervisord"]
 
