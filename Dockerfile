@@ -31,6 +31,8 @@ RUN apt-get update
 RUN apt-get -y --force-yes install supervisor fhem telnet
 RUN mkdir -p /var/log/supervisor
 
+RUN echo Europe/Berlin > /etc/timezone && sudo dpkg-reconfigure tzdata
+
 COPY ./etc/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 VOLUME ["/opt/fhem"]
