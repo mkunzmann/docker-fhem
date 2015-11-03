@@ -37,4 +37,3 @@ VOLUME ["/opt/fhem"]
 EXPOSE 8083
 
 CMD ["/usr/bin/supervisord"]
-
