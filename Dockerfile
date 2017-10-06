@@ -25,10 +25,15 @@ libswitch-perl \
 libsys-hostname-long-perl \
 libterm-readkey-perl \
 libterm-readline-perl-perl \
-libxml-simple-perl
+libxml-simple-perl \
+libcrypt-pbkdf2-perl \
+libcpan-meta-yaml-perl \
+build-essential
+
+RUN cpan install Net::MQTT:Simple
 
 RUN wget -qO - https://debian.fhem.de/archive.key | apt-key add -
-RUN echo "deb https://debian.fhem.de/stable ./" | tee -a /etc/apt/sources.list.d/fhem.list
+RUN echo "deb https://debian.fhem.de/nightly/ /" | tee -a /etc/apt/sources.list.d/fhem.list
 RUN apt-get update
 RUN apt-get -y --force-yes install supervisor fhem telnet
 RUN mkdir -p /var/log/supervisor
