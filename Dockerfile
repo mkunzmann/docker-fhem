@@ -1,4 +1,4 @@
-FROM debian:jessie
+FROM debian:stretch
 
 MAINTAINER michaelatdocker <michael.kunzmann@gmail.com>
 
@@ -28,6 +28,7 @@ libterm-readline-perl-perl \
 libxml-simple-perl \
 libcrypt-pbkdf2-perl \
 libcpan-meta-yaml-perl \
+libxml-simple-perl \
 build-essential
 
 RUN cpan install Net::MQTT:Simple
