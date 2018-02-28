@@ -12,47 +12,35 @@ RUN mkdir -p /var/log/supervisor
 COPY ./etc/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 # Install perl packages
-#RUN apt-get -y install libalgorithm-merge-perl \
-#libclass-isa-perl \
-#libcommon-sense-perl \
-#libdpkg-perl \
-#liberror-perl \
-#libfile-copy-recursive-perl \
-#libfile-fcntllock-perl \
-#libio-socket-ip-perl \
-#libio-socket-multicast-perl \
-#libjson-perl \
-#libjson-xs-perl \
-#libmail-sendmail-perl \
-#libsocket-perl \
-#libswitch-perl \
-#libsys-hostname-long-perl \
-#libterm-readkey-perl \
-#libterm-readline-perl-perl \
-#libxml-simple-perl \
-#libcrypt-pbkdf2-perl \
-#libcpan-meta-yaml-perl \
-#libxml-simple-perl \
-#build-essential
-#
-#RUN cpan install Net::MQTT:Simple
+RUN apt-get -y install libalgorithm-merge-perl \
+libclass-isa-perl \
+libcommon-sense-perl \
+libdpkg-perl \
+liberror-perl \
+libfile-copy-recursive-perl \
+libfile-fcntllock-perl \
+libio-socket-ip-perl \
+libio-socket-multicast-perl \
+libjson-perl \
+libjson-xs-perl \
+libmail-sendmail-perl \
+libsocket-perl \
+libswitch-perl \
+libsys-hostname-long-perl \
+libterm-readkey-perl \
+libterm-readline-perl-perl \
+libxml-simple-perl \
+libcrypt-pbkdf2-perl \
+libcpan-meta-yaml-perl \
+libxml-simple-perl \
+build-essential
+
+RUN cpan install Net::MQTT:Simple
 
 # Install Fhem
 RUN echo Europe/Berlin > /etc/timezone && dpkg-reconfigure tzdata
 
-# Option 1: Install Fhem via dpkg
-# Dependencies for Fhem
-#RUN apt-get -y install libdevice-serialport-perl \
-#libcgi-pm-perl \
-#sqlite3 \
-#libdbd-sqlite3-perl \
-#libdbd-sqlite3-perl \
-#libtext-diff-perl
-#ENV FHEM_VERSION 5.8
-#RUN wget https://fhem.de/fhem-${FHEM_VERSION}.deb && dpkg -i fhem-${FHEM_VERSION}.deb
-#RUN userdel fhem
-
-# Option 2: Install Fhem via apt-get
+# Install Fhem via apt-get
 RUN touch /sbin/init
 RUN apt-get -y install gnupg
 RUN wget -qO - https://debian.fhem.de/archive.key | apt-key add -
