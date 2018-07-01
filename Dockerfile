@@ -36,6 +36,7 @@ libxml-simple-perl \
 build-essential
 
 RUN cpan install Net::MQTT:Simple
+RUN cpan install Net::MQTT:Constants
 
 # Install Fhem
 RUN echo Europe/Berlin > /etc/timezone && dpkg-reconfigure tzdata
