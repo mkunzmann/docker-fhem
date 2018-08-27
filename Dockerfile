@@ -32,7 +32,7 @@ libterm-readline-perl-perl \
 libxml-simple-perl \
 libcrypt-pbkdf2-perl \
 libcpan-meta-yaml-perl \
-libxml-simple-perl \
+librpc-xml-perl \
 build-essential
 
 RUN cpan install Net::MQTT:Simple
